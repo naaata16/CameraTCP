@@ -30,8 +30,6 @@ MyClient::MyClient(const QString& strHost,int nPort, QWidget* pwgt):QWidget(pwgt
     QHBoxLayout* res = new QHBoxLayout;
     lb = new QLabel;
     lb->setFixedSize(1080,720);
-    //QImage img("C:\\Users\\Danil-PC\\Pictures\\069.jpg");
-    //lb->setPixmap(QPixmap::fromImage(img));
     QVBoxLayout* pvbxLayout = new QVBoxLayout;
     pvbxLayout->addWidget(new QLabel("<H1>Client</H1>"));
     pvbxLayout->addWidget(txtIp);
@@ -46,35 +44,7 @@ MyClient::MyClient(const QString& strHost,int nPort, QWidget* pwgt):QWidget(pwgt
     strPort.setNum(nPort);
     txtPort->setText(strPort);
 }
-/*
-void MyClient::slotReadyRead()
-{
-    QByteArray arr = tcpSocket->readAll();
-    txt.append(arr);
-    getPicture();
-}
-void MyClient::getPicture()
-{
-    char search1[] = "Content-Length: ";
-    int pol1 = txt.indexOf(search1);
-    if(pol1 != -1)
-    {
-        pol1 += 25;
-        char search2[] = "--myboundary";
-        int pol2 = txt.indexOf(search2,pol1);
-        if(pol2 != -1)
-        {
-            QByteArray picture = txt.mid(pol1,pol2-pol1-2);
-            int s = picture.size();
-            QByteArray r = picture.mid(s-2,2);
-            QImage img;
-            img.loadFromData(picture,"jpg");
-            lb->setPixmap(QPixmap::fromImage(img));
-            txt.remove(0,pol2);
-        }
-    }
-}
-*/
+
 void MyClient::slotReadyRead()
 {
     QByteArray arr = "";
